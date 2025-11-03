@@ -21,10 +21,10 @@ public class Medalha {
     private String nome;
 
     @Lob // Mantido para mapear TEXT (CLOB)
-    @Column(name = "medalha_descricao", nullable = false)
+    @Column(name = "medalha_descricao", nullable = false, columnDefinition = "TEXT")
     private String descricao;
 
     @Lob // Mantido para mapear BLOB
-    @Column(name = "medalha_icone") // Nullable por padrão, o que corresponde ao SQL
+    @Column(name = "medalha_icone", columnDefinition = "BLOB")
     private byte[] icone;
 }

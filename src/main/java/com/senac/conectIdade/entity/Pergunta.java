@@ -22,10 +22,10 @@ public class Pergunta {
     private Quiz quiz;
 
     @Lob // Para mapear o tipo TEXT (CLOB)
-    @Column(name = "pergunta_texto", nullable = false)
+    @Column(name = "pergunta_texto", nullable = false, columnDefinition = "TEXT")
     private String texto;
 
     @Lob // Para mapear o tipo TEXT (CLOB)
-    @Column(name = "pergunta_explicacao_resposta") // Nullable por padrão
+    @Column(name = "pergunta_explicacao_resposta", columnDefinition = "TEXT")
     private String explicacaoResposta;
 }

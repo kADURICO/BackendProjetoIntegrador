@@ -22,7 +22,7 @@ public class OpcaoResposta {
     private Pergunta pergunta;
 
     @Lob // Para mapear o tipo TEXT (CLOB)
-    @Column(name = "opcao_texto", nullable = false)
+    @Column(name = "opcao_texto", nullable = false, columnDefinition = "TEXT")
     private String texto;
 
     @Column(name = "opcao_is_correta", nullable = false)

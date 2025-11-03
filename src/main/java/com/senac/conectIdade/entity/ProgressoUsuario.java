@@ -1,6 +1,6 @@
 package com.senac.conectIdade.entity;
 
-import com.senac.conectIdade.enums.ProgressoStatus; // Importando o ENUM
+import com.senac.conectIdade.enums.ProgressoStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
