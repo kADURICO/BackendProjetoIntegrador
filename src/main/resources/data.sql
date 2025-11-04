@@ -1,4 +1,4 @@
--- Remove dados antigos na ordem correta de dependência (Filho -> Pai)
+-- Remove dados antigos na ordem de dependência (Filho -> Pai)
 DELETE FROM resposta_usuario_quiz;
 DELETE FROM usuario_medalha;
 DELETE FROM progresso_usuario;
