@@ -18,7 +18,6 @@ public class Licao {
     @Column(name = "licao_id")
     private Integer id;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "licao_modulo_id", nullable = false)
     private Modulo modulo;

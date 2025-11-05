@@ -67,7 +67,7 @@ public class ProgressoService {
 
     @Transactional
     public void completarLicao(Integer usuarioId, Integer licaoId) {
-        Usuario usuario = usuarioRepository.findById(usuarioId)
+        Usuario usuario = usuarioRepository.findByIdWithLock(usuarioId)
                 .orElseThrow(() -> new NoSuchElementException("Usuário não encontrado"));
         Licao licao = licaoRepository.findById(licaoId)
                 .orElseThrow(() -> new NoSuchElementException("Lição não encontrada"));
@@ -91,7 +91,7 @@ public class ProgressoService {
 
     @Transactional
     public void concederMedalha(Integer usuarioId, String nomeMedalha, Integer pontosExtras) {
-        Usuario usuario = usuarioRepository.findById(usuarioId)
+        Usuario usuario = usuarioRepository.findByIdWithLock(usuarioId)
                 .orElseThrow(() -> new NoSuchElementException("Usuário não encontrado"));
         Medalha medalha = medalhaRepository.findByNome(nomeMedalha)
                 .orElseThrow(() -> new NoSuchElementException("Medalha '" + nomeMedalha + "' não encontrada"));
@@ -130,7 +130,12 @@ public class ProgressoService {
     private void addPontos(Usuario usuario, Integer pontos) {
         if (pontos == null || pontos <= 0) return;
 
-        usuario.setPontuacaoTotal(usuario.getPontuacaoTotal() + pontos);
+        Integer pontuacaoAtual = usuario.getPontuacaoTotal();
+        if (pontuacaoAtual == null) {
+            pontuacaoAtual = 0;
+        }
+
+        usuario.setPontuacaoTotal(pontuacaoAtual + pontos);
         usuarioRepository.save(usuario);
     }
 }

@@ -17,14 +17,14 @@ public class OpcaoResposta {
     @Column(name = "opcao_id")
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY) // Muitas opções para uma pergunta
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "opcao_pergunta_id", nullable = false)
     private Pergunta pergunta;
 
-    @Lob // Para mapear o tipo TEXT (CLOB)
+    @Lob
     @Column(name = "opcao_texto", nullable = false, columnDefinition = "TEXT")
     private String texto;
 
     @Column(name = "opcao_is_correta", nullable = false)
-    private Boolean isCorreta = false; // Espelhando o DEFAULT FALSE
+    private Boolean isCorreta = false;
 }

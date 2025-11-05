@@ -46,11 +46,9 @@ public class QuizService {
 
         List<Pergunta> perguntas = perguntaRepository.findByQuizId(quiz.getId());
 
-        // Mapeia Perguntas para PerguntaDto
         List<PerguntaDtoResponse> perguntaDtos = perguntas.stream().map(pergunta -> {
             PerguntaDtoResponse perguntaDto = modelMapper.map(pergunta, PerguntaDtoResponse.class);
 
-            // Busca e mapeia as opções de resposta para cada pergunta
             List<OpcaoResposta> opcoes = opcaoRespostaRepository.findByPerguntaId(pergunta.getId());
             List<OpcaoRespostaDtoResponse> opcaoDtos = opcoes.stream()
                     .map(opcao -> modelMapper.map(opcao, OpcaoRespostaDtoResponse.class))
@@ -80,13 +78,16 @@ public class QuizService {
         resposta.setOpcaoEscolhida(opcaoEscolhida);
         respostaUsuarioQuizRepository.save(resposta);
 
-        boolean isCorreta = opcaoEscolhida.getIsCorreta();
+        boolean isCorreta = false;
+
+        if (opcaoEscolhida.getIsCorreta() != null && opcaoEscolhida.getIsCorreta()) {
+            isCorreta = true;
+        }
+
         if (isCorreta) {
-            Integer pontos = pergunta.getQuiz().getLicao().getPontosRecompensa();
             progressoService.completarLicao(usuarioId, pergunta.getQuiz().getLicao().getId());
         }
 
-        // 3. Retorna o resultado e a explicação
         return new ResultadoQuizDtoResponse(isCorreta, pergunta.getExplicacaoResposta());
     }
 }
