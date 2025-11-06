@@ -25,6 +25,6 @@ public class OpcaoResposta {
     @Column(name = "opcao_texto", nullable = false, columnDefinition = "TEXT")
     private String texto;
 
-    @Column(name = "opcao_is_correta", nullable = false)
-    private Boolean isCorreta = false;
+    @Column(name = "opcao_is_correta", nullable = false, columnDefinition = "TINYINT(1)")
+    private boolean isCorreta;
 }

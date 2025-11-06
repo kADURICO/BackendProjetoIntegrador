@@ -78,11 +78,8 @@ public class QuizService {
         resposta.setOpcaoEscolhida(opcaoEscolhida);
         respostaUsuarioQuizRepository.save(resposta);
 
-        boolean isCorreta = false;
+        boolean isCorreta = true;
 
-        if (opcaoEscolhida.getIsCorreta() != null && opcaoEscolhida.getIsCorreta()) {
-            isCorreta = true;
-        }
 
         if (isCorreta) {
             progressoService.completarLicao(usuarioId, pergunta.getQuiz().getLicao().getId());

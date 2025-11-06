@@ -63,13 +63,13 @@ SELECT (SELECT quiz_id FROM quiz WHERE quiz_licao_id = (SELECT licao_id FROM lic
        'Qual a função do botão vermelho durante uma chamada?',
        'O botão vermelho é usado para encerrar a ligação.';
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'A) Aumentar o volume da chamada', FALSE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'A) Aumentar o volume da chamada', 0;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'B) Encerrar a ligação', TRUE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'B) Encerrar a ligação', 1;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'C) Colocar a chamada em espera', FALSE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'C) Colocar a chamada em espera', 0;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'D) Ativar o viva-voz', FALSE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'D) Ativar o viva-voz', 0;
 
 
 INSERT INTO quiz (quiz_licao_id)
@@ -79,13 +79,13 @@ SELECT (SELECT quiz_id FROM quiz WHERE quiz_licao_id = (SELECT licao_id FROM lic
        'Qual ícone você deve pressionar para enviar um áudio no WhatsApp?',
        'O ícone do microfone (simbolo) é usado para gravar e enviar mensagens de áudio.';
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'A) Câmera (simbolo)', FALSE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'A) Câmera (simbolo)', 0;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'B) Microfone (simbolo)', TRUE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'B) Microfone (simbolo)', 1;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'C) Clipe de papel (simbolo)', FALSE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'C) Clipe de papel (simbolo)', 0;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'D) Emoji (simbolo)', FALSE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'D) Emoji (simbolo)', 0;
 
 
 INSERT INTO quiz (quiz_licao_id)
@@ -95,13 +95,13 @@ SELECT (SELECT quiz_id FROM quiz WHERE quiz_licao_id = (SELECT licao_id FROM lic
        'O que você deve fazer quando receber uma mensagem pedindo seus dados bancários?',
        'NUNCA forneça seus dados bancários, senhas ou informações pessoais por mensagem.';
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'A) Enviar os dados imediatamente', FALSE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'A) Enviar os dados imediatamente', 0;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'B) Nunca fornecer dados bancários por mensagem', TRUE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'B) Nunca fornecer dados bancários por mensagem', 1;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'C) Enviar apenas o número da conta', FALSE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'C) Enviar apenas o número da conta', 0;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'D) Perguntar mais detalhes antes de enviar', FALSE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'D) Perguntar mais detalhes antes de enviar', 0;
 
 
 INSERT INTO quiz (quiz_licao_id)
@@ -111,13 +111,13 @@ SELECT (SELECT quiz_id FROM quiz WHERE quiz_licao_id = (SELECT licao_id FROM lic
        'Qual ícone você deve pressionar para alternar entre câmera frontal e traseira?',
        'O ícone de rotação/troca (simbolo) permite alternar entre a câmera frontal e a traseira.';
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'A) Flash (simbolo)', FALSE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'A) Flash (simbolo)', 0;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'B) Rotação/Troca (simbolo)', TRUE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'B) Rotação/Troca (simbolo)', 1;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'C) Timer (simbolo)', FALSE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'C) Timer (simbolo)', 0;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'D) Grade (simbolo)', FALSE;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'D) Grade (simbolo)', 0;
 
 
 -- 5. USUÁRIO DE TESTE
