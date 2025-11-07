@@ -80,10 +80,7 @@ public class QuizService {
 
         boolean isCorreta = true;
 
-
-        if (isCorreta) {
-            progressoService.completarLicao(usuarioId, pergunta.getQuiz().getLicao().getId());
-        }
+        progressoService.completarLicao(usuarioId, pergunta.getQuiz().getLicao().getId());
 
         return new ResultadoQuizDtoResponse(isCorreta, pergunta.getExplicacaoResposta());
     }
