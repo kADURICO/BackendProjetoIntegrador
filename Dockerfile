@@ -4,6 +4,6 @@ RUN mvn clean package -DskipTests
 
 FROM amazoncorretto:21-alpine
 COPY --from=build target/*.jar conectIdade.jar
-EXPOSE 8080
+EXPOSE 4502
 
 CMD ["java", "-jar", "/conectIdade.jar"]
