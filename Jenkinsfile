@@ -21,7 +21,7 @@ pipeline {
         stage('Construir Imagem Docker') {
             steps {
                 script {
-                    def appName = 'demo'
+                    def appName = 'conectidade'
                     def imageTag = "${appName}:${env.BUILD_ID}"
 
                     // Construir a imagem Docker
