@@ -67,8 +67,10 @@ public class QuizService {
     public ResultadoQuizDtoResponse submeterResposta(Integer usuarioId, RespostaQuizDtoRequest respostaDto) {
         Usuario usuario = usuarioRepository.findById(usuarioId)
                 .orElseThrow(() -> new NoSuchElementException("Usuário não encontrado"));
+
         Pergunta pergunta = perguntaRepository.findById(respostaDto.getPerguntaId())
                 .orElseThrow(() -> new NoSuchElementException("Pergunta não encontrada"));
+
         OpcaoResposta opcaoEscolhida = opcaoRespostaRepository.findById(respostaDto.getOpcaoEscolhidaId())
                 .orElseThrow(() -> new NoSuchElementException("Opção não encontrada"));
 
@@ -78,9 +80,11 @@ public class QuizService {
         resposta.setOpcaoEscolhida(opcaoEscolhida);
         respostaUsuarioQuizRepository.save(resposta);
 
-        boolean isCorreta = true;
+        boolean isCorreta = opcaoEscolhida.isCorreta();
 
-        progressoService.completarLicao(usuarioId, pergunta.getQuiz().getLicao().getId());
+        if (isCorreta) {
+            progressoService.completarLicao(usuarioId, pergunta.getQuiz().getLicao().getId());
+        }
 
         return new ResultadoQuizDtoResponse(isCorreta, pergunta.getExplicacaoResposta());
     }
