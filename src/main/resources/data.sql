@@ -77,15 +77,15 @@ SELECT licao_id FROM licao WHERE licao_titulo = 'Quiz: Mensagens';
 INSERT INTO pergunta (pergunta_quiz_id, pergunta_texto, pergunta_explicacao_resposta)
 SELECT (SELECT quiz_id FROM quiz WHERE quiz_licao_id = (SELECT licao_id FROM licao WHERE licao_titulo = 'Quiz: Mensagens')),
        'Qual ícone você deve pressionar para enviar um áudio no WhatsApp?',
-       'O ícone do microfone (simbolo) é usado para gravar e enviar mensagens de áudio.';
+       'O ícone do microfone é usado para gravar e enviar mensagens de áudio.';
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'A) Câmera (simbolo)', 0;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'A) Câmera', 0;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'B) Microfone (simbolo)', 1;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'B) Microfone', 1;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'C) Clipe de papel (simbolo)', 0;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'C) Clipe de papel', 0;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'D) Emoji (simbolo)', 0;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'D) Emoji', 0;
 
 
 INSERT INTO quiz (quiz_licao_id)
@@ -109,15 +109,15 @@ SELECT licao_id FROM licao WHERE licao_titulo = 'Quiz: Câmera';
 INSERT INTO pergunta (pergunta_quiz_id, pergunta_texto, pergunta_explicacao_resposta)
 SELECT (SELECT quiz_id FROM quiz WHERE quiz_licao_id = (SELECT licao_id FROM licao WHERE licao_titulo = 'Quiz: Câmera')),
        'Qual ícone você deve pressionar para alternar entre câmera frontal e traseira?',
-       'O ícone de rotação/troca (simbolo) permite alternar entre a câmera frontal e a traseira.';
+       'O ícone de rotação/troca permite alternar entre a câmera frontal e a traseira.';
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'A) Flash (simbolo)', 0;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'A) Flash', 0;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'B) Rotação/Troca (simbolo)', 1;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'B) Rotação/Troca', 1;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'C) Timer (simbolo)', 0;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'C) Timer', 0;
 INSERT INTO opcao_resposta (opcao_pergunta_id, opcao_texto, opcao_is_correta)
-SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'D) Grade (simbolo)', 0;
+SELECT (SELECT MAX(pergunta_id) FROM pergunta), 'D) Grade', 0;
 
 
 -- 5. USUÁRIO DE TESTE
