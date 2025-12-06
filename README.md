@@ -8,7 +8,7 @@ O sistema gerencia usuários, trilhas de aprendizado (módulos e lições), gami
 
 ## 🚀 Tecnologias Utilizadas
 
-* **Java 17+**
+* **Java 21+**
 * **Spring Boot 3** (Web, Data JPA, Validation)
 * **Banco de Dados:** Relacional (compatível com MySQL/PostgreSQL/H2 via JPA)
 * **Lombok:** Redução de código boilerplate.
